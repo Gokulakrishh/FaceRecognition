@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.20)
 project(
     face_recognition
     VERSION 0.1.0
-    DESCRIPTION "Lightweight face recognition tool in C++20"
+    DESCRIPTION "Lightweight face recognition tool in Modern C++"
     LANGUAGES CXX
 )
 
