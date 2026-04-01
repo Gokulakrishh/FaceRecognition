@@ -6,9 +6,9 @@
 #include "core/image_data.hpp"
 
 
+class StbImageDecoder {
+public:
 
-[[nodiscard]] ImageData read_grayscale_with_stb(
-    const std::filesystem::path& path,
-    std::string_view format_name
-);
+[[nodiscard]] ImageData decode_grayscale(const std::filesystem::path& path, std::string_view format_name) const;
 
+};

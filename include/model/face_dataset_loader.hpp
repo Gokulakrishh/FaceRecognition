@@ -11,9 +11,7 @@ class FaceDatasetLoader {
 public:
     virtual ~FaceDatasetLoader() = default;
 
-    [[nodiscard]] virtual std::vector<FaceSample> load_from_folder(
-        const std::filesystem::path& root
-    ) const = 0;
+    [[nodiscard]] virtual std::vector<FaceSample> load_from_folder(const std::filesystem::path& root) const = 0;
 };
 
 

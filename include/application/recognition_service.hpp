@@ -36,9 +36,7 @@ public:
     [[nodiscard]] const PcaModel& model() const noexcept;
 
 private:
-    [[nodiscard]] Eigen::MatrixXd build_training_matrix(
-        const std::vector<FaceSample>& samples
-    ) const;
+    [[nodiscard]] Eigen::MatrixXd build_training_matrix(const std::vector<FaceSample>& samples) const;
 
     PcaModel m_pca_model;
     NearestNeighborMatcher m_matcher;

@@ -4,10 +4,10 @@
 
 
 
-class PgmImageReader final : public application::ports::ImageReader {
+class PgmImageReader final : public ImageReader {
 public:
     [[nodiscard]] bool can_read(const std::filesystem::path& path) const override;
-    [[nodiscard]] common::ImageData read_grayscale(const std::filesystem::path& path) const override;
+    [[nodiscard]] ImageData read_grayscale(const std::filesystem::path& path) const override;
 };
 
 
