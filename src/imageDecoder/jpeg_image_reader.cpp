@@ -1,5 +1,6 @@
 #include "imageDecoder/jpeg_image_reader.hpp"
 #include "imageDecoder/stb_image_decoder.hpp"
+#include "core/helper.hpp"
 
 #include <algorithm>
 #include <cctype>
@@ -18,25 +19,16 @@ extern "C" {
 }
 #endif
 
-namespace face_engine::infrastructure::io {
-namespace {
 
-std::string normalize_extension(const std::filesystem::path& path) {
-    auto extension = path.extension().string();
-    std::transform(extension.begin(), extension.end(), extension.begin(), [](const unsigned char value) {
-        return static_cast<char>(std::tolower(value));
-    });
-    return extension;
-}
 
-}  // namespace
-
-bool JpegImageReader::can_read(const std::filesystem::path& path) const {
-    const auto extension = normalize_extension(path);
+bool JpegImageReader::can_read(const std::filesystem::path& path) const 
+{
+    const auto extension = helper::normalize_extension(path);
     return extension == ".jpg" || extension == ".jpeg";
 }
 
-common::ImageData JpegImageReader::read_grayscale(const std::filesystem::path& path) const {
+ImageData JpegImageReader::read_grayscale(const std::filesystem::path& path) const 
+{
     if (!can_read(path)) {
         throw std::runtime_error("jpeg reader does not support: " + path.string());
     }
@@ -57,7 +49,7 @@ common::ImageData JpegImageReader::read_grayscale(const std::filesystem::path& p
     jpeg_read_header(&info, TRUE);
     jpeg_start_decompress(&info);
 
-    common::ImageData image {
+    ImageData image {
         .width = static_cast<std::size_t>(info.output_width),
         .height = static_cast<std::size_t>(info.output_height),
         .pixels = std::vector<unsigned char>(
@@ -97,4 +89,4 @@ common::ImageData JpegImageReader::read_grayscale(const std::filesystem::path& p
 #endif
 }
 
-}  // namespace face_engine::infrastructure::io
+

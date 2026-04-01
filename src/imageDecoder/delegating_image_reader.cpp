@@ -1,25 +1,26 @@
-#include "face_engine/infrastructure/io/delegating_image_reader.hpp"
+#include "imageDecoder/delegating_image_reader.hpp"
 
 #include <stdexcept>
 #include <utility>
 
-namespace face_engine::infrastructure::io {
 
-DelegatingImageReader::DelegatingImageReader(std::vector<std::shared_ptr<application::ports::ImageReader>> readers)
-    : readers_(std::move(readers)) {
-    if (readers_.empty()) {
+DelegatingImageReader::DelegatingImageReader(std::vector<std::shared_ptr<ImageReader>> readers)
+    : m_readers(std::move(readers)) 
+{
+    if (m_readers.empty()) {
         throw std::invalid_argument("delegating image reader requires at least one backend");
     }
 
-    for (const auto& reader : readers_) {
+    for (const auto& reader : m_readers) {
         if (!reader) {
             throw std::invalid_argument("delegating image reader backends must not be null");
         }
     }
 }
 
-bool DelegatingImageReader::can_read(const std::filesystem::path& path) const {
-    for (const auto& reader : readers_) {
+bool DelegatingImageReader::can_read(const std::filesystem::path& path) const 
+{
+    for (const auto& reader : m_readers) {
         if (reader->can_read(path)) {
             return true;
         }
@@ -28,12 +29,14 @@ bool DelegatingImageReader::can_read(const std::filesystem::path& path) const {
     return false;
 }
 
-common::ImageData DelegatingImageReader::read_grayscale(const std::filesystem::path& path) const {
+ImageData DelegatingImageReader::read_grayscale(const std::filesystem::path& path) const 
+{
     return resolve(path).read_grayscale(path);
 }
 
-const application::ports::ImageReader& DelegatingImageReader::resolve(const std::filesystem::path& path) const {
-    for (const auto& reader : readers_) {
+const ImageReader& DelegatingImageReader::resolve(const std::filesystem::path& path) const 
+{
+    for (const auto& reader : m_readers) {
         if (reader->can_read(path)) {
             return *reader;
         }
@@ -42,4 +45,3 @@ const application::ports::ImageReader& DelegatingImageReader::resolve(const std:
     throw std::runtime_error("no image reader registered for: " + path.string());
 }
 
-}  // namespace face_engine::infrastructure::io

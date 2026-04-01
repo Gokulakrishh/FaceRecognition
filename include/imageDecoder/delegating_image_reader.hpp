@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 
-#include "application/image_reader.hpp"
+#include "imageDecoder/image_reader.hpp"
 
 
 class DelegatingImageReader final : public ImageReader {

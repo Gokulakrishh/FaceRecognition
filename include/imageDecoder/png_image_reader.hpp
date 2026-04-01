@@ -1,6 +1,6 @@
 #pragma once
 
-#include "application/image_reader.hpp"
+#include "imageDecoder/image_reader.hpp"
 
 
 class PngImageReader final : public ImageReader {

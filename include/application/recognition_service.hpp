@@ -6,8 +6,8 @@
 #include <string>
 #include <vector>
 
-#include "application/face_dataset_loader.hpp"
-#include "application/image_reader.hpp"
+#include "model/face_dataset_loader.hpp"
+#include "imageDecoder/image_reader.hpp"
 #include "application/recognition_result.hpp"
 #include "core/nearest_neighbor_matcher.hpp"
 #include "core/pca_model.hpp"
