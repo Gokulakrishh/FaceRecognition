@@ -2,8 +2,8 @@
 
 #include <memory>
 
-#include "application/face_dataset_loader.hpp"
-#include "application/image_reader.hpp"
+#include "model/face_dataset_loader.hpp"
+#include "imageDecoder/image_reader.hpp"
 
 
 
