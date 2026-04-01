@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "application/recognition_service.hpp"
 #include "imageDecoder/image_folder_dataset_loader.hpp"
 #include "imageDecoder/delegating_image_reader.hpp"

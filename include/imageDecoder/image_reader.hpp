@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <filesystem>
@@ -12,5 +14,4 @@ public:
     [[nodiscard]] virtual bool can_read(const std::filesystem::path& path) const = 0;
     [[nodiscard]] virtual ImageData read_grayscale(const std::filesystem::path& path) const = 0;
 };
-
 

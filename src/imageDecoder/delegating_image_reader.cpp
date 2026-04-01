@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "imageDecoder/delegating_image_reader.hpp"
 
 #include <stdexcept>
@@ -44,4 +46,3 @@ const ImageReader& DelegatingImageReader::resolve(const std::filesystem::path& p
 
     throw std::runtime_error("no image reader registered for: " + path.string());
 }
-

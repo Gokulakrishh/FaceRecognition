@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <eigen3/Eigen/Dense>
@@ -18,5 +20,4 @@ private:
     Eigen::MatrixXd m_basis;
     bool m_trained {false};
 };
-
 

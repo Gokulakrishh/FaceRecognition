@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "imageDecoder/image_folder_dataset_loader.hpp"
 
 #include <algorithm>
@@ -132,5 +134,4 @@ Eigen::VectorXd ImageFolderDatasetLoader::normalize(const ImageData& image) cons
 
     return pixels;
 }
-
 

@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "core/in_memory_face_repository.hpp"
 
 #include <utility>
@@ -39,5 +41,4 @@ void InMemoryFaceRepository::clear()
 {
     m_samples.clear();
 }
-
 

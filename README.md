@@ -1,6 +1,8 @@
 # FaceRecognition
 
-Lightweight face recognition project in modern C++20 using an Eigenfaces/PCA pipeline.
+Lightweight face recognition project in modern C++20 using an Eigenfaces/PCA pipeline, a CLI, and a REST API.
+
+Author: Gokulakrishnan Sivakumar
 
 ## Purpose
 
@@ -13,6 +15,7 @@ It includes:
 - nearest-neighbor matching
 - support for PGM, JPEG, and PNG images
 - multithreaded folder loading to speed up dataset ingestion
+- REST API for training, status, and recognition
 
 ## Tech Stack
 
@@ -26,6 +29,8 @@ It includes:
 - `include/`: public headers
 - `src/`: implementation files
 - `apps/cli/`: command-line entry point
+- `apps/api/`: REST API server entry point
+- `interfaces/rest/`: REST controller and HTTP server layer
 
 Main components:
 
@@ -72,7 +77,7 @@ cmake -S . -B build
 cmake --build build -j
 ```
 
-## Run
+## Run CLI
 
 The CLI executable is:
 
@@ -96,7 +101,50 @@ Arguments:
 
 - `dataset_dir`: root folder containing subject subfolders
 - `query_image`: image to recognize
-- `components`: optional PCA component count, default is set in the CLI
+- `components`: optional PCA component count, default is set in the CLI as 64
+
+## Run REST API
+
+The API executable is:
+
+```bash
+./build/face_recognition_api
+```
+
+Start it on the default port:
+
+```bash
+./build/face_recognition_api
+```
+
+Or specify a port:
+
+```bash
+./build/face_recognition_api 8080
+```
+
+Available endpoints:
+
+- `GET /health`
+- `GET /api/v1/status`
+- `POST /api/v1/train`
+- `POST /api/v1/recognize`
+
+Train request:
+
+```bash
+curl -X POST http://localhost:8080/api/v1/train \
+  -H "Content-Type: application/json" \
+  -d '{"dataset_path":"./dataset","components":64}'
+```
+
+Recognize request:
+
+```bash
+curl -X POST http://localhost:8080/api/v1/recognize \
+  -H "Content-Type: application/json" \
+  -d '{"image_path":"./dataset/query.png"}'
+```
 
 ## Dataset Layout
 

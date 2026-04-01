@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "imageDecoder/stb_image_decoder.hpp"
 
 #include <stdexcept>

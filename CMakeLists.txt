@@ -1,3 +1,5 @@
+# Author: Gokulakrishnan Sivakumar
+
 cmake_minimum_required(VERSION 3.20)
 
 project(
@@ -27,6 +29,8 @@ add_library(face_recognition
     src/imageDecoder/pgm_image_reader.cpp
     src/imageDecoder/png_image_reader.cpp
     src/imageDecoder/stb_image_decoder.cpp
+    src/interfaces/rest/rest_controller.cpp
+    src/interfaces/rest/rest_server.cpp
 )
 
 target_include_directories(face_recognition PUBLIC ${PROJECT_SOURCE_DIR}/include)
@@ -49,3 +53,6 @@ endif()
 
 add_executable(face_recognition_tool apps/cli/main.cpp)
 target_link_libraries(face_recognition_tool PRIVATE face_recognition)
+
+add_executable(face_recognition_api apps/api/main.cpp)
+target_link_libraries(face_recognition_api PRIVATE face_recognition)

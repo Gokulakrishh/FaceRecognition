@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <string>
@@ -10,5 +12,4 @@ struct RecognitionResult {
     int label {-1};
     double distance {0.0};
 };
-
 

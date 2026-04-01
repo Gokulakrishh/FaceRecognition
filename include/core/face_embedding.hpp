@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <eigen3/Eigen/Dense>
@@ -13,5 +15,4 @@ public:
 private:
     const PcaModel& m_model;
 };
-
 

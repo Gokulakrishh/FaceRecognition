@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "imageDecoder/pgm_image_reader.hpp"
 #include "core/helper.hpp"
 
@@ -60,5 +62,4 @@ ImageData PgmImageReader::read_grayscale(const std::filesystem::path& path) cons
 
     return image;
 }
-
 

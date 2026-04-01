@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <filesystem>
@@ -13,5 +15,4 @@ public:
 
     [[nodiscard]] virtual std::vector<FaceSample> load_from_folder(const std::filesystem::path& root) const = 0;
 };
-
 

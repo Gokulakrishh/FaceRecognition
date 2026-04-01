@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <filesystem>
@@ -44,5 +46,4 @@ private:
     std::shared_ptr<FaceDatasetLoader> m_dataset_loader;
     std::shared_ptr<ImageReader> m_image_reader;
 };
-
 

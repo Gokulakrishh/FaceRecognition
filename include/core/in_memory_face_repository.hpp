@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <unordered_map>
@@ -16,5 +18,4 @@ public:
 private:
     std::unordered_map<std::string, FaceSample> m_samples;
 };
-
 

@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "core/nearest_neighbor_matcher.hpp"
 
 #include <limits>
@@ -35,5 +37,4 @@ std::optional<std::pair<FaceSample, double>> NearestNeighborMatcher::match(const
 
     return std::make_pair(*best_match, best_distance);
 }
-
 

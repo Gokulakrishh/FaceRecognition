@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "core/pca_model.hpp"
 
 #include <algorithm>
@@ -65,5 +67,4 @@ std::size_t PcaModel::components() const noexcept
 {
     return static_cast<std::size_t>(m_basis.cols());
 }
-
 

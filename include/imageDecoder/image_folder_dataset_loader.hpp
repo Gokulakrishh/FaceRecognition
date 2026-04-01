@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <memory>
@@ -18,4 +20,3 @@ private:
 
     std::shared_ptr<ImageReader> m_image_reader;
 };
-

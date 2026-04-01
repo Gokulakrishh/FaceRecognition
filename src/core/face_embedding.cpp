@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "core/face_embedding.hpp"
 
 
@@ -12,5 +14,4 @@ Eigen::VectorXd FaceEmbedding::encode(const Eigen::VectorXd& pixels) const
 {
     return m_model.project(pixels);
 }
-
 

@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <string>
@@ -12,5 +14,4 @@ struct FaceSample {
     Eigen::VectorXd pixels;
     Eigen::VectorXd embedding;
 };
-
 

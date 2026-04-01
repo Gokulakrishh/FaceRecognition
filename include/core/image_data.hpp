@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <cstddef>
@@ -8,4 +10,3 @@ struct ImageData {
     std::size_t height {0};
     std::vector<unsigned char> pixels;
 };
-

@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "imageDecoder/png_image_reader.hpp"
 #include "imageDecoder/stb_image_decoder.hpp"
 #include "core/helper.hpp"
@@ -113,5 +115,4 @@ ImageData PngImageReader::read_grayscale(const std::filesystem::path& path) cons
     return image;
 #endif
 }
-
 

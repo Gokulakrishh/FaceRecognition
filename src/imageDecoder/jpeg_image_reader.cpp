@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "imageDecoder/jpeg_image_reader.hpp"
 #include "imageDecoder/stb_image_decoder.hpp"
 #include "core/helper.hpp"
@@ -88,5 +90,4 @@ ImageData JpegImageReader::read_grayscale(const std::filesystem::path& path) con
     return image;
 #endif
 }
-
 

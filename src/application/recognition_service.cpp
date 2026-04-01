@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #include "application/recognition_service.hpp"
 
 #include <stdexcept>
@@ -132,5 +134,4 @@ Eigen::MatrixXd RecognitionService::build_training_matrix(const std::vector<Face
 
     return training_matrix;
 }
-
 

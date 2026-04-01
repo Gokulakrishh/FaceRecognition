@@ -1,3 +1,5 @@
+// Author: Gokulakrishnan Sivakumar
+
 #pragma once
 
 #include <optional>
@@ -15,4 +17,3 @@ public:
     virtual std::optional<FaceSample> find_by_id(const std::string& id) const = 0;
     virtual void clear() = 0;
 };
-
