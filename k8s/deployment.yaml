@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: face-recognition-api
-          image: ghcr.io/your-github-username/face-recognition-api:latest
+          image: ghcr.io/Gokulakrishh/face-recognition-api:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
