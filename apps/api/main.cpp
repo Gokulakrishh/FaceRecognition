@@ -20,6 +20,7 @@
 
 int main(int argc, char** argv)
 {
+    //git CI/CD test
     try {
         auto repository = std::make_shared<InMemoryFaceRepository>();
         auto image_reader = std::make_shared<DelegatingImageReader>(std::vector<std::shared_ptr<ImageReader>> {
