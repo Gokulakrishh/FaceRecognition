@@ -1,0 +1,8 @@
+.git
+.gitignore
+build
+cmake-build-*
+.DS_Store
+.vscode
+README.md
+LICENSE

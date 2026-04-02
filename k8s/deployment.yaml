@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: face-recognition-api
+  namespace: face-recognition
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: face-recognition-api
+  template:
+    metadata:
+      labels:
+        app: face-recognition-api
+    spec:
+      containers:
+        - name: face-recognition-api
+          image: ghcr.io/your-github-username/face-recognition-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
+          envFrom:
+            - configMapRef:
+                name: face-recognition-config
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
+          volumeMounts:
+            - name: dataset-storage
+              mountPath: /data
+      volumes:
+        - name: dataset-storage
+          persistentVolumeClaim:
+            claimName: face-recognition-data
